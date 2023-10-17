@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Button } from "./Button";
 
 export const Trending = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
@@ -22,25 +23,31 @@ export const Trending = () => {
   }, []);
 
   return (
-    <section className="h-2/5 mx-6">
-      <h2 className="mb-4 text-lg">Trending now</h2>
-      <div className="flex  overflow-x-scroll h-3/4">
+    <div className="h-2/5 mx-6">
+      <div className="mb-4 flex justify-between items-center">
+        <h2 className="text-lg">Trending now</h2>
+        <Button />
+      </div>
+      <div className="flex  overflow-x-scroll overflow-y-visible h-3/4 gap-x-4">
         {trendingMovies.map((movie) => (
-          <div key={movie.id}>
+          <div
+            key={movie.id}
+            className="cursor-pointer scale-[0.98] hover:scale-100 transition-all"
+          >
             <div
-              className="w-60 border h-4/5 mr-4 rounded-lg bg-cover bg-center"
+              className="w-60 h-4/5 rounded-lg bg-cover bg-center"
               style={{
                 backgroundImage: `url('https://image.tmdb.org/t/p/w500/${movie.backdrop_path}')`,
               }}
             ></div>
-            <h2 className="my-2">
-              {movie.original_title.length > 25
-                ? movie.original_title.slice(0, 25) + "..."
-                : movie.original_title}
+            <h2 className="mt-2">
+              {movie.title.length > 30
+                ? movie.title.slice(0, 30) + "..."
+                : movie.title}
             </h2>
           </div>
         ))}
       </div>
-    </section>
+    </div>
   );
 };
