@@ -24,15 +24,16 @@ export const Main = () => {
   }, []);
 
   return (
-    <main
-      id="home"
-      className="w-screen h-screen text-white bg-center bg-no-repeat bg-cover"
-      style={{
-        backgroundImage: `linear-gradient(to bottom, rgb(10, 10, 10, 0.3), transparent ), linear-gradient(to top, rgb(10, 10, 10) 30%, transparent), url('https://image.tmdb.org/t/p/original/${latestMovies[index].backdrop_path}`,
-      }}
-    >
-      <Home latestMovies={latestMovies} index={index} setIndex={setIndex} />
-      <Trending />
+    <main>
+      <section
+        className=" h-screen text-white bg-center bg-no-repeat bg-cover"
+        style={{
+          backgroundImage: `linear-gradient(to bottom, rgb(10, 10, 10, 0.3), transparent ), linear-gradient(to top, rgb(10, 10, 10) 30%, transparent), url('https://image.tmdb.org/t/p/original/${latestMovies[index].backdrop_path}`,
+        }}
+      >
+        <Home latestMovies={latestMovies} index={index} setIndex={setIndex} />
+        <Trending />
+      </section>
     </main>
   );
 };

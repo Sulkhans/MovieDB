@@ -1,4 +1,3 @@
-import Arrow from "../assets/arrow.svg?react";
 import Star from "../assets/star.svg?react";
 import { useEffect } from "react";
 
