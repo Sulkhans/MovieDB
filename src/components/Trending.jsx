@@ -23,28 +23,28 @@ export const Trending = () => {
   }, []);
 
   return (
-    <div className="h-2/5 mx-6">
-      <div className="mb-4 flex justify-between items-center">
-        <h2 className="text-lg">Trending now</h2>
+    <div className="h-2/5">
+      <div className="flex justify-between items-center mb-2">
+        <h2 className="text-xl">Trending now</h2>
         <Button />
       </div>
-      <div className="flex  overflow-x-scroll overflow-y-visible h-3/4 gap-x-4">
+      <div className="flex  overflow-x-scroll h-3/4 gap-x-4">
         {trendingMovies.map((movie) => (
           <div
             key={movie.id}
-            className="cursor-pointer scale-[0.98] hover:scale-100 transition-all"
+            className="flex flex-col justify-center  cursor-pointer scale-[0.98] hover:scale-100 transition-all"
           >
             <div
-              className="w-60 h-4/5 rounded-lg bg-cover bg-center"
+              className="w-72 h-40 rounded-lg bg-cover bg-center"
               style={{
                 backgroundImage: `url('https://image.tmdb.org/t/p/w500/${movie.backdrop_path}')`,
               }}
-            ></div>
-            <h2 className="mt-2">
+            />
+            <h3 className="mt-3 text-lg">
               {movie.title.length > 30
                 ? movie.title.slice(0, 30) + "..."
                 : movie.title}
-            </h2>
+            </h3>
           </div>
         ))}
       </div>
