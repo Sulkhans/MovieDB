@@ -20,7 +20,11 @@ export const Section = (props) => {
                 backgroundImage: `url('https://image.tmdb.org/t/p/w500/${item.poster_path}')`,
               }}
             />
-            <h3 className="mt-3 text-lg">{item.name || item.title}</h3>
+            <h3 className="mt-3 text-lg">
+              {(item.name || item.title).length > 33
+                ? (item.name || item.title).slice(0, 33) + "..."
+                : item.name || item.title}
+            </h3>
           </div>
         ))}
       </div>
