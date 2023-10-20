@@ -6,6 +6,7 @@ const App = () => {
   const [latestMovies, setLatestMovies] = useState([{}]);
   const [topMovies, setTopMovies] = useState([]);
   const [topShows, setTopShows] = useState([]);
+  const [upcoming, setUpcoming] = useState([]);
 
   useEffect(() => {
     const options = {
@@ -22,6 +23,8 @@ const App = () => {
       "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1";
     const url3 =
       "https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1";
+    const url4 =
+      "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1&region=us";
 
     fetch(url1, options)
       .then((res) => res.json())
@@ -37,6 +40,11 @@ const App = () => {
       .then((res) => res.json())
       .then((json) => setTopShows(json.results))
       .catch((err) => console.error("error:" + err));
+
+    fetch(url4, options)
+      .then((res) => res.json())
+      .then((json) => setUpcoming(json.results))
+      .catch((err) => console.error("error:" + err));
   }, []);
 
   return (
@@ -46,6 +54,7 @@ const App = () => {
         latestMovies={latestMovies}
         topMovies={topMovies}
         topShows={topShows}
+        upcoming={upcoming}
       />
     </div>
   );

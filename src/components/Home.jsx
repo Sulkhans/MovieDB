@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Slider } from "./Slider";
 import { Trending } from "./Trending";
 import { Section } from "./Section";
 
-export const Home = ({ latestMovies, topMovies, topShows }) => {
+export const Home = ({ latestMovies, topMovies, topShows, upcoming }) => {
   const [index, setIndex] = useState(0);
 
   return (
@@ -18,6 +18,7 @@ export const Home = ({ latestMovies, topMovies, topShows }) => {
         <Trending />
       </section>
       <section className="bg-neutral-950 px-6">
+        <Section data={upcoming} name="Upcoming" />
         <Section data={topMovies} name="Top Rated Movies" />
         <Section data={topShows} name="Top Rated TV Shows" />
       </section>
