@@ -18,7 +18,7 @@ export const Trending = () => {
 
     fetch(url, options)
       .then((res) => res.json())
-      .then((json) => setTrendingMovies(json.results.slice(0, 15)))
+      .then((json) => setTrendingMovies(json.results))
       .catch((err) => console.error("Error fetching data:", err));
   }, []);
 
@@ -26,7 +26,7 @@ export const Trending = () => {
     <div className="h-2/5">
       <div className="flex justify-between items-center mb-2">
         <h2 className="text-xl">Trending now</h2>
-        <Button />
+        <Button path="/MovieDB/Trending" />
       </div>
       <div className="flex  overflow-x-scroll h-3/4 gap-x-4">
         {trendingMovies.map((movie) => (
