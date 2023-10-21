@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Header } from "./Header";
+import { PageNav } from "./PageNav";
 
 export const List = (props) => {
   const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
   const [list, setList] = useState([]);
 
   useEffect(() => {
@@ -18,9 +20,12 @@ export const List = (props) => {
 
     fetch(url, options)
       .then((res) => res.json())
-      .then((json) => setList(json.results))
+      .then((json) => {
+        setList(json.results);
+        setTotalPages(json.total_pages);
+      })
       .catch((err) => console.error("Error fetching data:", err));
-  }, []);
+  }, [page]);
 
   return (
     <div className="bg-gradient-to-tl from-neutral-950 to-neutral-800 ... text-white">
@@ -29,17 +34,21 @@ export const List = (props) => {
         <h1 className="text-2xl my-6">{props.name}</h1>
         <section className="flex flex-wrap justify-center gap-11 py-4">
           {list.map((item) => (
-            <div key={item.id} className="w-60">
+            <div
+              key={item.id}
+              className="w-60 cursor-pointer scale-[0.98] hover:scale-105 transition-all"
+            >
               <img
                 src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
                 loading="lazy"
                 className="rounded-lg"
               />
-              <h2 className="text-lg mt-4">{item.title}</h2>
+              <h2 className="text-lg mt-4">{item.title || item.name}</h2>
             </div>
           ))}
         </section>
       </div>
+      <PageNav page={page} setPage={setPage} totalPages={totalPages} />
     </div>
   );
 };
