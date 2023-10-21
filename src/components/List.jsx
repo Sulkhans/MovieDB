@@ -28,7 +28,7 @@ export const List = (props) => {
   }, [page]);
 
   return (
-    <div className="bg-gradient-to-tl from-neutral-950 to-neutral-800 ... text-white">
+    <div className="bg-gradient-to-tl from-neutral-950 to-neutral-800 ... text-white min-h-screen">
       <Header />
       <div className="pt-16 px-6">
         <h1 className="text-2xl my-6">{props.name}</h1>
