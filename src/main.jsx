@@ -16,6 +16,18 @@ const router = createBrowserRouter([
     path: "/MovieDB/Trending",
     element: <List name="Trending now" media="movie" search="popular" />,
   },
+  {
+    path: "/MovieDB/Upcoming",
+    element: <List name="Upcoming" media="movie" search="upcoming" />,
+  },
+  {
+    path: "/MovieDB/TopMovies",
+    element: <List name="Top Rated Movies" media="movie" search="top_rated" />,
+  },
+  {
+    path: "/MovieDB/TopTV",
+    element: <List name="Top Rated TV Shows" media="tv" search="top_rated" />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

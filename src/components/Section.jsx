@@ -6,7 +6,7 @@ export const Section = (props) => {
     <div className="flex flex-col py-8">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl">{props.name}</h2>
-        <Button />
+        <Button path={props.path} />
       </div>
       <div className="flex overflow-x-scroll gap-x-4">
         {props.data.slice(0, 10).map((item) => (
