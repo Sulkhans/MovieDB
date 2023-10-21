@@ -5,6 +5,7 @@ import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ErrorPage from "./ErrorPage.jsx";
 import { List } from "./components/List.jsx";
+import { Info } from "./components/Info.jsx";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: "/MovieDB/TopTV",
     element: <List name="Top Rated TV Shows" media="tv" search="top_rated" />,
+  },
+  {
+    path: "/MovieDB/:type/:id",
+    element: <Info />,
   },
 ]);
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Box = ({ result, search, focused }) => {
   return (
@@ -12,12 +13,14 @@ export const Box = ({ result, search, focused }) => {
       {result.map((item) => (
         <div
           key={item.id}
-          className="flex cursor-pointer scale-[0.97] hover:scale-100 transition-all"
+          className="flex scale-[0.97] hover:scale-100 transition-all"
         >
-          <img
-            src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
-            className="w-28 rounded-lg"
-          />
+          <Link to={`/MovieDB/${item.media_type}/${item.id}`}>
+            <img
+              src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
+              className="w-28 rounded-lg"
+            />
+          </Link>
         </div>
       ))}
     </div>

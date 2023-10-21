@@ -61,16 +61,23 @@ export const Home = () => {
         <Trending />
       </section>
       <section className="bg-neutral-950 px-6">
-        <Section data={upcoming} name="Upcoming" path="/MovieDB/Upcoming" />
+        <Section
+          data={upcoming}
+          name="Upcoming"
+          path="/MovieDB/Upcoming"
+          media="movie"
+        />
         <Section
           data={topMovies}
           name="Top Rated Movies"
           path="/MovieDB/TopMovies"
+          media="movie"
         />
         <Section
           data={topShows}
           name="Top Rated TV Shows"
           path="/MovieDB/TopTV"
+          media="tv"
         />
       </section>
     </main>

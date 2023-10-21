@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "./Button";
+import { Link } from "react-router-dom";
 
 export const Trending = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
@@ -32,19 +33,21 @@ export const Trending = () => {
         {trendingMovies.slice(0, 10).map((movie) => (
           <div
             key={movie.id}
-            className="flex flex-col justify-center  cursor-pointer scale-[0.98] hover:scale-100 transition-all"
+            className="flex flex-col justify-center scale-[0.98] hover:scale-100 transition-all"
           >
-            <div
-              className="w-72 h-40 rounded-lg bg-cover bg-center"
-              style={{
-                backgroundImage: `url('https://image.tmdb.org/t/p/w500/${movie.backdrop_path}')`,
-              }}
-            />
-            <h3 className="mt-3 text-lg">
-              {movie.title.length > 30
-                ? movie.title.slice(0, 30) + "..."
-                : movie.title}
-            </h3>
+            <Link to={`/MovieDB/movie/${movie.id}}`}>
+              <div
+                className="w-72 h-40 rounded-lg bg-cover bg-center"
+                style={{
+                  backgroundImage: `url('https://image.tmdb.org/t/p/w500/${movie.backdrop_path}')`,
+                }}
+              />
+              <h3 className="mt-3 text-lg">
+                {movie.title.length > 30
+                  ? movie.title.slice(0, 30) + "..."
+                  : movie.title}
+              </h3>
+            </Link>
           </div>
         ))}
       </div>

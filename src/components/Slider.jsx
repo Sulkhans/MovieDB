@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Star from "../assets/star.svg?react";
 import { useEffect } from "react";
 
@@ -22,9 +23,11 @@ export const Slider = ({ latestMovies, index, setIndex }) => {
             <Star className="w-4 h-4 mr-1 mb-[3px]" />
             {latestMovies[index].vote_average}
           </div>
-          <button className="px-6 py-2 border-2 rounded-full border-white border-opacity-30 hover:bg-white hover:text-black transition-all">
-            More Info
-          </button>
+          <Link to={`/MovieDB/movie/${latestMovies[index].id}}`}>
+            <button className="px-6 py-2 border-2 rounded-full border-white border-opacity-30 hover:bg-white hover:text-black transition-all">
+              More Info
+            </button>
+          </Link>
         </div>
       </div>
     </div>
