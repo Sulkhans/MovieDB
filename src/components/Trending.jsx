@@ -29,7 +29,7 @@ export const Trending = () => {
         <Button path="/MovieDB/Trending" />
       </div>
       <div className="flex  overflow-x-scroll h-3/4 gap-x-4">
-        {trendingMovies.map((movie) => (
+        {trendingMovies.slice(0, 10).map((movie) => (
           <div
             key={movie.id}
             className="flex flex-col justify-center  cursor-pointer scale-[0.98] hover:scale-100 transition-all"

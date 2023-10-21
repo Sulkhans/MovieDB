@@ -9,7 +9,7 @@ export const Section = (props) => {
         <Button />
       </div>
       <div className="flex overflow-x-scroll gap-x-4">
-        {props.data.map((item) => (
+        {props.data.slice(0, 10).map((item) => (
           <div
             key={item.id}
             className="flex flex-col justify-center mb-2 cursor-pointer scale-[0.98] hover:scale-100 transition-all"
