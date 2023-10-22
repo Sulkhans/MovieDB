@@ -24,7 +24,7 @@ export const Trending = () => {
   }, []);
 
   return (
-    <div className="h-2/5">
+    <div className="h-[45%]">
       <div className="flex justify-between items-center mb-2">
         <h2 className="text-xl">Trending now</h2>
         <Button path="/MovieDB/Trending" />

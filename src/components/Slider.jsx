@@ -13,7 +13,7 @@ export const Slider = ({ latestMovies, index, setIndex }) => {
   }, []);
 
   return (
-    <div className="h-3/5 flex justify-between items-end ">
+    <div className="h-[55%] flex justify-between items-end ">
       <div className="flex flex-col mb-8">
         <h1 className="text-4xl font-medium mb-6 sm:text-7xl">
           {latestMovies[index].title}
