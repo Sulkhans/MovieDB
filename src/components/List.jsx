@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Header } from "./Header";
 import { PageNav } from "./PageNav";
+import { Link } from "react-router-dom";
 
 export const List = (props) => {
   const [page, setPage] = useState(1);
@@ -36,14 +37,16 @@ export const List = (props) => {
           {list.map((item) => (
             <div
               key={item.id}
-              className="w-60 cursor-pointer scale-[0.98] hover:scale-105 transition-all"
+              className="w-60 scale-[0.98] hover:scale-105 transition-all"
             >
-              <img
-                src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
-                loading="lazy"
-                className="rounded-lg"
-              />
-              <h2 className="text-lg mt-4">{item.title || item.name}</h2>
+              <Link to={`/MovieDB/${props.media}/${item.id}`}>
+                <img
+                  src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
+                  loading="lazy"
+                  className="rounded-lg"
+                />
+                <h2 className="text-lg mt-4">{item.title || item.name}</h2>
+              </Link>
             </div>
           ))}
         </section>
