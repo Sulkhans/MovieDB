@@ -21,7 +21,8 @@ export const Slider = ({ latestMovies, index, setIndex }) => {
         <div className="flex items-center">
           <div className="flex items-center border-2 rounded-full border-white bg-white text-black font-medium px-3 py-2 mr-3">
             <Star className="w-4 h-4 mr-1 mb-[2px]" />
-            {latestMovies[index].vote_average.toFixed(1)}
+            {latestMovies[index].vote_average &&
+              latestMovies[index].vote_average.toFixed(1)}
           </div>
           <Link to={`/MovieDB/movie/${latestMovies[index].id}}`}>
             <button className="px-6 py-2 border-2 rounded-full border-white border-opacity-30 hover:bg-white hover:text-black transition-all">
