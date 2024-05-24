@@ -65,13 +65,11 @@ export const Info = () => {
                     ? `${Math.floor(item.runtime / 60)}h ${item.runtime % 60}m`
                     : `${item.last_episode_to_air.runtime}m`}
                 </h2>
-                {type === "tv" ? (
+                {type === "tv" && (
                   <>
                     <h2>Episodes:</h2>
                     <h2>{item.number_of_episodes}</h2>
                   </>
-                ) : (
-                  ""
                 )}
                 <h2>Rating:</h2>
                 <h2>{item.vote_average.toFixed(1)}</h2>

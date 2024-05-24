@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Search from "../assets/search.svg?react";
 import { Box } from "./Box";
+import Search from "../assets/search.svg?react";
+import Icon from "../assets/icon.svg?react";
 
 export const Header = () => {
   const [search, setSearch] = useState("");
-  const [result, setResult] = useState([]);
-  const [focused, setFocused] = useState(false);
-
-  const handleChange = (event) => setSearch(event.target.value);
+  const [result, setResult] = useState(null);
 
   useEffect(() => {
-    if (search.length > 3) {
+    if (search.length >= 3) {
       const url = `https://api.themoviedb.org/3/search/multi?query=${search}&include_adult=false&language=en-US&page=1`;
       const options = {
         method: "GET",
@@ -21,7 +19,6 @@ export const Header = () => {
             "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmZDY5ZmY2YTMwOGRlOWRlNDBlMmMwMDlmYTlkMGFhYSIsInN1YiI6IjY1Mjk3NDJkMWYzZTYwMDBmZjg1MTRkMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7zkmF3jayq5zSMH3TS2TsU9bvQNABU0myOj-lUjHkEk",
         },
       };
-
       fetch(url, options)
         .then((res) => res.json())
         .then((json) =>
@@ -32,30 +29,26 @@ export const Header = () => {
           )
         )
         .catch((err) => console.error("error:" + err));
-    }
+    } else setResult(null);
   }, [search]);
 
   return (
-    <header className="w-full h-14 flex justify-between align-middle items-center absolute px-6 text-white">
+    <header className="w-full h-12 flex justify-between align-middle items-end absolute px-6 text-white">
       <Link to={"/MovieDB/"}>
-        <h1 className="text-xl tracking-widest border-2 rounded-md px-2 cursor-pointer">
-          MovieDB
-        </h1>
+        <Icon className="w-8 h-8 fill-white" />
       </Link>
-      <div className="flex items-center relative">
+      <div className="flex items-center relative group">
         <input
           type="text"
           placeholder="Search"
           value={search}
-          onChange={handleChange}
-          onFocus={() => setFocused(true)}
-          onBlur={() => setFocused(false)}
-          className="outline-none bg-transparent border-b-2 py-2 pr-7 w-40 text-lg placeholder:text-white placeholder:opacity-70 focus:placeholder:opacity-0 sm:hover:w-60 sm:focus:w-60 transition-all"
+          onChange={(e) => setSearch(e.target.value)}
+          className="outline-none leading-4 bg-transparent rounded-none border-b-2 py-2 pr-7 w-36 sm:w-40 placeholder:text-white placeholder:opacity-70 focus:placeholder:opacity-0 sm:hover:w-60 sm:focus:w-60 transition-all"
         />
         <Link className="flex items-center">
-          <Search className="w-5 h-5 fill-white absolute right-0" />
+          <Search className="w-4 h-4 fill-white absolute right-0" />
         </Link>
-        <Box result={result} search={search} focused={focused} />
+        {result && <Box result={result} search={search} focused={false} />}
       </div>
     </header>
   );

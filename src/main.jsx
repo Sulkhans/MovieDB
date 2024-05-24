@@ -6,11 +6,18 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ErrorPage from "./ErrorPage.jsx";
 import { List } from "./components/List.jsx";
 import { Info } from "./components/Info.jsx";
+import { Header } from "./components/Header.jsx";
+import { Home } from "./components/Home.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/MovieDB/",
-    element: <App />,
+    element: (
+      <>
+        <Header />
+        <Home />
+      </>
+    ),
     errorElement: <ErrorPage />,
   },
   {

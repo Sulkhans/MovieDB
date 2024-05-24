@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const Section = (props) => {
   return (
-    <div className="flex flex-col py-8">
+    <div className="flex flex-col py-8 snap-start">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl">{props.name}</h2>
         <Button path={props.path} />
@@ -17,12 +17,12 @@ export const Section = (props) => {
           >
             <Link to={`/MovieDB/${props.media}/${item.id}}`}>
               <div
-                className="w-72 h-96 rounded-lg bg-cover bg-center"
+                className="w-48 h-72 sm:w-64 sm:h-96 rounded-lg bg-cover bg-center"
                 style={{
                   backgroundImage: `url('https://image.tmdb.org/t/p/w500/${item.poster_path}')`,
                 }}
               />
-              <h3 className="mt-3 text-lg">
+              <h3 className="mt-3 sm:text-lg line-clamp-1">
                 {(item.name || item.title).length > 33
                   ? (item.name || item.title).slice(0, 33) + "..."
                   : item.name || item.title}

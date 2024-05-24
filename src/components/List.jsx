@@ -33,11 +33,11 @@ export const List = (props) => {
       <Header />
       <div className="pt-16 px-6">
         <h1 className="text-2xl my-6">{props.name}</h1>
-        <section className="flex flex-wrap justify-center gap-11 py-4">
+        <section className="flex flex-wrap justify-center gap-4 sm:gap-11 py-4">
           {list.map((item) => (
             <div
               key={item.id}
-              className="w-60 scale-[0.98] hover:scale-105 transition-all"
+              className="w-36 sm:w-60 scale-[0.98] hover:scale-105 transition-all"
             >
               <Link to={`/MovieDB/${props.media}/${item.id}`}>
                 <img
@@ -45,7 +45,7 @@ export const List = (props) => {
                   loading="lazy"
                   className="rounded-lg"
                 />
-                <h2 className="text-lg mt-4">{item.title || item.name}</h2>
+                <h2 className="sm:text-lg mt-4">{item.title || item.name}</h2>
               </Link>
             </div>
           ))}

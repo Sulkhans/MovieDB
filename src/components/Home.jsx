@@ -52,7 +52,7 @@ export const Home = () => {
   return (
     <main className="text-white">
       <section
-        className="h-screen bg-center bg-no-repeat bg-cover px-6"
+        className="h-screen bg-center bg-no-repeat bg-cover px-6 snap-start ..."
         style={{
           backgroundImage: `linear-gradient(to bottom, rgb(10, 10, 10, 0.3), transparent ), linear-gradient(to top, rgb(10, 10, 10) 30%, transparent), url('https://image.tmdb.org/t/p/original/${latestMovies[index].backdrop_path}`,
         }}
