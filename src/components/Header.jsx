@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Box } from "./Box";
 import Search from "../assets/search.svg?react";
+import Cancel from "../assets/cancel.svg?react";
 import Icon from "../assets/icon.svg?react";
 
 export const Header = () => {
@@ -15,8 +16,7 @@ export const Header = () => {
         method: "GET",
         headers: {
           accept: "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmZDY5ZmY2YTMwOGRlOWRlNDBlMmMwMDlmYTlkMGFhYSIsInN1YiI6IjY1Mjk3NDJkMWYzZTYwMDBmZjg1MTRkMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7zkmF3jayq5zSMH3TS2TsU9bvQNABU0myOj-lUjHkEk",
+          Authorization: "Bearer " + import.meta.env.VITE_TMDB_API_ACCESS_TOKEN,
         },
       };
       fetch(url, options)
@@ -45,10 +45,15 @@ export const Header = () => {
           onChange={(e) => setSearch(e.target.value)}
           className="outline-none leading-4 bg-transparent rounded-none border-b-2 py-2 pr-7 w-36 sm:w-40 placeholder:text-white placeholder:opacity-70 focus:placeholder:opacity-0 sm:hover:w-60 sm:focus:w-60 transition-all"
         />
-        <Link className="flex items-center">
+        {search.length < 1 ? (
           <Search className="w-4 h-4 fill-white absolute right-0" />
-        </Link>
-        {result && <Box result={result} search={search} focused={false} />}
+        ) : (
+          <Cancel
+            onClick={() => setSearch("")}
+            className="w-6 h-6 fill-white absolute -right-1 cursor-pointer"
+          />
+        )}
+        {result && <Box result={result} />}
       </div>
     </header>
   );

@@ -12,8 +12,7 @@ export const Trending = () => {
       method: "GET",
       headers: {
         accept: "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmZDY5ZmY2YTMwOGRlOWRlNDBlMmMwMDlmYTlkMGFhYSIsInN1YiI6IjY1Mjk3NDJkMWYzZTYwMDBmZjg1MTRkMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7zkmF3jayq5zSMH3TS2TsU9bvQNABU0myOj-lUjHkEk",
+        Authorization: "Bearer " + import.meta.env.VITE_TMDB_API_ACCESS_TOKEN,
       },
     };
 
@@ -24,12 +23,12 @@ export const Trending = () => {
   }, []);
 
   return (
-    <div className="h-[45%]">
-      <div className="flex justify-between items-center mb-2">
+    <div className="h-[45%] mt-2">
+      <div className="flex justify-between items-center ">
         <h2 className="text-xl">Trending now</h2>
         <Button path="/MovieDB/Trending" />
       </div>
-      <div className="flex  overflow-x-scroll h-3/4 gap-x-4">
+      <div className="flex overflow-x-scroll h-3/4 gap-x-4">
         {trendingMovies.slice(0, 10).map((movie) => (
           <div
             key={movie.id}

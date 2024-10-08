@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Header } from "./Header";
 import { PageNav } from "./PageNav";
 import { Link } from "react-router-dom";
 
@@ -14,8 +13,7 @@ export const List = (props) => {
       method: "GET",
       headers: {
         accept: "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmZDY5ZmY2YTMwOGRlOWRlNDBlMmMwMDlmYTlkMGFhYSIsInN1YiI6IjY1Mjk3NDJkMWYzZTYwMDBmZjg1MTRkMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7zkmF3jayq5zSMH3TS2TsU9bvQNABU0myOj-lUjHkEk",
+        Authorization: "Bearer " + import.meta.env.VITE_TMDB_API_ACCESS_TOKEN,
       },
     };
 
@@ -30,7 +28,6 @@ export const List = (props) => {
 
   return (
     <div className="bg-gradient-to-tl from-neutral-950 to-neutral-800 ... text-white min-h-screen">
-      <Header />
       <div className="pt-16 px-6">
         <h1 className="text-2xl my-6">{props.name}</h1>
         <section className="flex flex-wrap justify-center gap-4 sm:gap-11 py-4">
