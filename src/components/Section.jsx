@@ -1,10 +1,9 @@
-import React from "react";
 import { Button } from "./Button";
 import { Link } from "react-router-dom";
 
 export const Section = (props) => {
   return (
-    <div className="flex flex-col py-8 snap-start">
+    <div className="flex flex-col py-8">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl">{props.name}</h2>
         <Button path={props.path} />

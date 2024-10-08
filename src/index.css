@@ -5,28 +5,50 @@
 html {
   user-select: none;
   background-color: #171717;
-  scroll-snap-type: y proximity;
-  scroll-behavior: smooth;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.loader {
+  width: 50px;
+  padding: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #282828;
+  --_m: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+  mask: var(--_m);
+  -webkit-mask-composite: source-out;
+  mask-composite: subtract;
+  animation: spin 1s infinite linear;
+}
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
 }
 
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px;
-  background-color: #0f0f0e;
+  background-color: #0a0a0a;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #403d39;
+  background-color: #252422;
   border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #252422;
+  background-color: #403d39;
 }
 ::-webkit-scrollbar-track {
   border-radius: 5px;
-  background-color: #0f0f0e;
+  background-color: #0a0a0a;
 }
 ::-webkit-scrollbar-button,
 ::-webkit-scrollbar-corner {
-  background-color: #0f0f0e;
+  background-color: #0a0a0a;
 }
