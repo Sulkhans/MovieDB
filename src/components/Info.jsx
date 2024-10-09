@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Header } from "./Header";
 import { Loader } from "./Loader";
 
 export const Info = () => {
@@ -26,7 +25,6 @@ export const Info = () => {
 
   return (
     <div className="text-white">
-      <Header />
       {loading ? (
         <Loader />
       ) : (

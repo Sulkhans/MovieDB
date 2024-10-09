@@ -50,5 +50,6 @@ html {
 }
 ::-webkit-scrollbar-button,
 ::-webkit-scrollbar-corner {
+  width: 0;
   background-color: #0a0a0a;
 }
