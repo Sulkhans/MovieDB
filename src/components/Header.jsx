@@ -37,20 +37,20 @@ export const Header = () => {
       <Link to={"/MovieDB/"}>
         <Icon className="w-8 h-8 fill-white" />
       </Link>
-      <div className="flex items-center relative group">
+      <div className="flex items-center bg-[#252422] rounded-full relative group">
         <input
           type="text"
           placeholder="Search"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="outline-none leading-4 bg-transparent rounded-none border-b-2 py-2 pr-7 w-36 sm:w-40 placeholder:text-white placeholder:opacity-70 focus:placeholder:opacity-0 sm:hover:w-60 sm:focus:w-60 transition-all"
+          className="outline-none indent-4 leading-4 bg-transparent rounded-none py-2.5 pr-7 w-36 sm:w-48 placeholder:text-white placeholder:opacity-70 focus:placeholder:opacity-0 sm:hover:w-60 sm:focus:w-60 transition-all"
         />
         {search.length < 1 ? (
-          <Search className="w-4 h-4 fill-white absolute right-0" />
+          <Search className="w-4 h-4 fill-white absolute right-4 mb-0.5" />
         ) : (
           <Cancel
             onClick={() => setSearch("")}
-            className="w-6 h-6 fill-white absolute -right-1 cursor-pointer"
+            className="w-6 h-6 fill-white absolute right-3 cursor-pointer"
           />
         )}
         {result && <Box result={result} />}
