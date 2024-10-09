@@ -1,15 +1,26 @@
-import React from "react";
 import Prev from "../assets/prev.svg?react";
 import Next from "../assets/next.svg?react";
+import { useNavigate, useLocation } from "react-router-dom";
 
-export const PageNav = ({ page, setPage, totalPages }) => {
+export const PageNav = ({ page, totalPages }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const path = location.pathname.substring(
+    0,
+    location.pathname.replace(/\/$/, "").lastIndexOf("/")
+  );
+
   const handlePrev = () => {
-    setPage((prevPage) => prevPage - 1);
-    window.scrollTo(0, 0);
+    if (page > 1) {
+      navigate(`${path}/${Number(page) - 1}`);
+      window.scrollTo(0, 0);
+    }
   };
   const handleNext = () => {
-    setPage((prevPage) => prevPage + 1);
-    window.scrollTo(0, 0);
+    if (page < totalPages) {
+      navigate(`${path}/${Number(page) + 1}`);
+      window.scrollTo(0, 0);
+    }
   };
 
   return (

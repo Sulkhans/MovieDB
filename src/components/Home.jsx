@@ -51,9 +51,9 @@ export const Home = () => {
   return (
     <main className="text-white">
       <section
-        className="h-screen bg-center bg-no-repeat bg-cover px-6 snap-start ..."
+        className="h-screen bg-center bg-no-repeat bg-cover px-6 flex flex-col justify-end"
         style={{
-          backgroundImage: `linear-gradient(to bottom, rgb(10, 10, 10, 0.3), transparent ), linear-gradient(to top, rgb(10, 10, 10) 30%, transparent), url('https://image.tmdb.org/t/p/original/${latestMovies[index].backdrop_path}`,
+          backgroundImage: `linear-gradient(to bottom, rgb(10, 10, 10, 0.3), transparent), linear-gradient(to top, rgb(10, 10, 10) 30%, transparent), url('https://image.tmdb.org/t/p/original/${latestMovies[index].backdrop_path}`,
         }}
       >
         <Slider latestMovies={latestMovies} index={index} setIndex={setIndex} />
@@ -63,19 +63,19 @@ export const Home = () => {
         <Section
           data={upcoming}
           name="Upcoming"
-          path="/MovieDB/Upcoming"
+          path="/MovieDB/Upcoming/1"
           media="movie"
         />
         <Section
           data={topMovies}
           name="Top Rated Movies"
-          path="/MovieDB/TopMovies"
+          path="/MovieDB/TopMovies/1"
           media="movie"
         />
         <Section
           data={topShows}
           name="Top Rated TV Shows"
-          path="/MovieDB/TopTV"
+          path="/MovieDB/TopTV/1"
           media="tv"
         />
       </section>

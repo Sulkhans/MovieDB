@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { PageNav } from "./PageNav";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export const List = (props) => {
-  const [page, setPage] = useState(1);
+  const { page } = useParams();
   const [totalPages, setTotalPages] = useState(1);
   const [list, setList] = useState([]);
 
@@ -30,7 +30,7 @@ export const List = (props) => {
     <div className="bg-gradient-to-tl from-neutral-950 to-neutral-800 ... text-white min-h-screen">
       <div className="pt-16 px-6">
         <h1 className="text-2xl my-6">{props.name}</h1>
-        <section className="flex flex-wrap justify-center gap-4 sm:gap-11 py-4">
+        <section className="flex flex-wrap justify-center gap-4 sm:gap-11 py-4 min-h-screen">
           {list.map((item) => (
             <div
               key={item.id}
@@ -48,7 +48,7 @@ export const List = (props) => {
           ))}
         </section>
       </div>
-      <PageNav page={page} setPage={setPage} totalPages={totalPages} />
+      <PageNav page={page} totalPages={totalPages} />
     </div>
   );
 };

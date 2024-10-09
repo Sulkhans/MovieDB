@@ -23,10 +23,10 @@ export const Trending = () => {
   }, []);
 
   return (
-    <div className="h-[45%] mt-2">
+    <div className="h-[45%] max-h-80 mt-2">
       <div className="flex justify-between items-center ">
         <h2 className="text-xl">Trending now</h2>
-        <Button path="/MovieDB/Trending" />
+        <Button path="/MovieDB/Trending/1" />
       </div>
       <div className="flex overflow-x-scroll h-3/4 gap-x-4">
         {trendingMovies.slice(0, 10).map((movie) => (
