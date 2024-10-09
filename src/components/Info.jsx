@@ -26,7 +26,6 @@ export const Info = () => {
 
   return (
     <div className="text-white">
-      <Header />
       {loading ? (
         <Loader />
       ) : (
