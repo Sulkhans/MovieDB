@@ -4,8 +4,8 @@
 
 ## Screenshots
 
-![Laptop screens](./previews/laptop.png)
-![Mobile Screens](./previews/kenklf.png)
+![Laptop screens](./previews/1.png)
+![Mobile Screens](./previews/2.png)
 
 ## Features
 
