@@ -34,7 +34,7 @@ export const Info = () => {
             backgroundImage: `linear-gradient(to bottom, rgb(10, 10, 10, 0.3), transparent ), linear-gradient(to top, rgb(10, 10, 10) 30%, transparent), url('https://image.tmdb.org/t/p/original/${item.backdrop_path}`,
           }}
         >
-          <div className="flex flex-col mt-6 lg:flex-row lg:items-center xl:px-28">
+          <div className="flex flex-col pt-4 pb-6 lg:flex-row lg:items-center xl:px-28">
             <img
               loading="lazy"
               className="w-60 rounded-lg self-center lg:w-80 lg:mx-12"

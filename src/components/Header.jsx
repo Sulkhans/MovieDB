@@ -33,7 +33,7 @@ export const Header = () => {
   }, [search]);
 
   return (
-    <header className="w-full h-12 flex justify-between align-middle items-end absolute px-6 text-white">
+    <header className="w-full h-16 flex justify-between align-middle items-center absolute px-6 text-white">
       <Link to={"/MovieDB/"}>
         <Icon className="w-8 h-8 fill-white" />
       </Link>
@@ -43,7 +43,7 @@ export const Header = () => {
           placeholder="Search"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="outline-none indent-4 leading-4 bg-transparent rounded-none py-2.5 pr-7 w-36 sm:w-48 placeholder:text-white placeholder:opacity-70 focus:placeholder:opacity-0 sm:hover:w-60 sm:focus:w-60 transition-all"
+          className="outline-none leading-4 bg-transparent rounded-none py-2.5 pr-10 pl-4 w-36 sm:w-44 placeholder:text-white placeholder:opacity-70 focus:placeholder:opacity-0 sm:hover:w-60 sm:focus:w-60 transition-all"
         />
         {search.length < 1 ? (
           <Search className="w-4 h-4 fill-white absolute right-4 mb-0.5" />
