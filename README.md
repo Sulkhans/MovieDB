@@ -18,7 +18,7 @@
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/MovieDB.git
+git clone https://github.com/Sulkhans/MovieDB.git
 cd MovieDB
 ```
 
